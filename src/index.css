@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+@theme {
+  --color-maroon: #8a1c2e;
+  --color-maroon-deep: #3b0f1b;
+  --color-maroon-ink: #5a1020;
+  --color-gold: #d4a24c;
+  --color-gold-soft: #ecc97a;
+  --color-ink: #141010;
+  --color-walnut: #5b2f21;
+  /* neutral tokens used by the product rail */
+  --color-foreground: #141010;
+  --color-muted-foreground: #8b8480;
+  --color-background: #ffffff;
+  --color-card: #ffffff;
+  --color-card-foreground: #141010;
+  --color-border: #e6e1dd;
+  --color-ring: #8a1c2e;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-anton), Impact, sans-serif;
+}
+
+/* fonts: the names the @fontsource packages register (next/font used to create these variables) */
+:root {
+  --font-inter: "Inter Variable";
+  --font-source-serif: "Source Serif 4 Variable";
+  --font-anton: "Anton";
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #fff;
+}
+body {
+  background: #fff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+section[id] {
+  scroll-margin-top: 90px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #7a1428 0%, #a8453a 45%, #d9a54f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.gradient-text-rev {
+  background: linear-gradient(90deg, #d9a54f 0%, #a8453a 45%, #7a1428 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.gradient-text-dark {
+  background: linear-gradient(90deg, #1a0a0d 0%, #8a1c2e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5d5753;
+}
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+.section-title {
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  font-size: clamp(2.4rem, 5.2vw, 4.5rem);
+}
+
+/* Primary pill button, one house style for every section */
+.btn-maroon {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--color-maroon);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 8px 8px 8px 28px;
+  box-shadow: 0 0 0 2px rgba(212, 162, 76, 0.55), 0 10px 30px -8px rgba(138, 28, 46, 0.6);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s;
+}
+.btn-maroon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 2px rgba(212, 162, 76, 0.9), 0 16px 36px -10px rgba(138, 28, 46, 0.7);
+}
+.btn-maroon:active {
+  transform: scale(0.97);
+}
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+  color: var(--color-ink);
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 8px 8px 8px 28px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-white:hover {
+  transform: translateY(-2px);
+}
+.btn-white:active {
+  transform: scale(0.97);
+}
+.btn-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+}
+
+/* Ticker */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 60s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Vertical photo columns (Muse Film) */
+@keyframes col-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+@keyframes col-down {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+::selection {
+  background: var(--color-maroon);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes intro-logo {
+  from { opacity: 0; transform: scale(0.94); letter-spacing: 0.08em; }
+  to { opacity: 1; transform: scale(1); letter-spacing: 0.24em; }
+}
+.intro-logo {
+  animation: intro-logo 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* The opening film plays first; the navbar and ticker slide in when Hero flips <html data-intro> to "ready". */
+[data-intro-hide] {
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+html[data-intro="playing"] [data-intro-hide] {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(var(--intro-dy, -16px));
+}
+
+/* Try the Look: a soft ring that pulses around each numbered hotspot */
+@keyframes hot-pulse {
+  0% { transform: scale(1); opacity: 0.55; box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.9); }
+  100% { transform: scale(1.9); opacity: 0; box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+.hot-pulse {
+  background: rgba(255, 255, 255, 0.7);
+  animation: hot-pulse 2.2s ease-out infinite;
+}
+
+/* product rail: caption fade, and a soft entrance for each tab */
+@keyframes rail-fade {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: none; }
+}
+.rail-fade { animation: rail-fade 0.3s ease-out both; }
+.rail-stage { animation: rail-fade 0.5s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .rail-fade, .rail-stage { animation: none; }
+}
+
+/* ---- phones & touch screens only: nothing here applies on desktop ---- */
+@media (hover: none) {
+  /* there is no hover on a touch screen, so the note under each mood is simply always shown */
+  .mood-note { opacity: 1 !important; transform: none !important; }
+}
+@media (max-width: 767px) {
+  /* the curved line under the Muses cards: drawn wider than the screen so the text stays readable, tucked under the cards */
+  .muses-curve { width: 960px; left: 50%; margin-left: -480px; margin-top: -4px !important; margin-bottom: -8px !important; }
+}
