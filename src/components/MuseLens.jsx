@@ -263,7 +263,8 @@ export default function MuseLens({ apiRef, onIndex, onAdd, bend = 0.55 }) {
       dpr = 1,
       cw = 1,
       ch = 1,
-      gap = 1;
+      gap = 1,
+      eb = bend; // effective bend; much gentler on phones, where the card fills ~60% of the canvas width
     let pos = start,
       vel = 0,
       target = start;
@@ -288,6 +289,7 @@ export default function MuseLens({ apiRef, onIndex, onAdd, bend = 0.55 }) {
       canvas.width = Math.round(W * dpr);
       canvas.height = Math.round(H * dpr);
       [cw, ch] = cardSize(W, H);
+      eb = W < 640 ? bend * 0.15 : bend;
       // wide screens: seven cards across (the centre one and three each side), evenly spread; narrow screens keep a loose row
       gap = W < 900 ? cw * 0.14 : Math.max(8, (W / 2 - cw / 2) / 3 - cw);
       gl.viewport(0, 0, canvas.width, canvas.height);
@@ -299,7 +301,7 @@ export default function MuseLens({ apiRef, onIndex, onAdd, bend = 0.55 }) {
       gl.clear(gl.COLOR_BUFFER_BIT);
       gl.uniform2f(u.uRes, W, H);
       gl.uniform2f(u.uSize, cw, ch);
-      gl.uniform1f(u.uBend, bend);
+      gl.uniform1f(u.uBend, eb);
       gl.uniform1f(u.uVel, reduced.matches ? 0 : Math.max(-1, Math.min(1, vel * 0.12)));
       const step = cw + gap;
       for (let i = 0; i < n; i++) {
@@ -375,9 +377,9 @@ export default function MuseLens({ apiRef, onIndex, onAdd, bend = 0.55 }) {
         const d = offsetOf(i, pos, n);
         const nx = (d * step) / (W / 2);
         const xc = Math.max(-1.4, Math.min(1.4, nx));
-        const sx = W / 2 + nx * (1 - 0.06 * bend * xc * xc) * (W / 2);
-        const hw = (cw / 2) * (1 - 0.06 * bend * xc * xc);
-        const hh = (ch / 2) * (1 + bend * xc * xc);
+        const sx = W / 2 + nx * (1 - 0.06 * eb * xc * xc) * (W / 2);
+        const hw = (cw / 2) * (1 - 0.06 * eb * xc * xc);
+        const hh = (ch / 2) * (1 + eb * xc * xc);
         if (Math.abs(px_ - sx) <= hw && Math.abs(py - H / 2) <= hh) return { i, d };
       }
       return null;

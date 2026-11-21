@@ -3,12 +3,12 @@ export const inr = (n) => "₹" + n.toLocaleString("en-IN");
 /* ---------- Six Moods ---------- */
 /** the six arch photos, cropped from the reference screenshot (public/moods) */
 export const MOODS = [
-  { name: "Wedding Edit", note: "Crimson & gold for the mandap", img: "/moods/m0.webp" },
-  { name: "Kanchipuram Icons", note: "Temple borders, pure zari", img: "/moods/m1.webp" },
-  { name: "Banarasi Heirlooms", note: "Brocade passed down generations", img: "/moods/m2.webp" },
-  { name: "Festive Radiance", note: "Warm silks for celebration days", img: "/moods/m3.webp" },
-  { name: "Zari Signatures", note: "Gold thread, hand-finished", img: "/moods/m4.webp" },
-  { name: "Bridal Élan", note: "Drapes made for the big day", img: "/moods/m5.webp" },
+  { name: "Wedding Edit", note: "Crimson & gold for the mandap", img: "/moods/mood-0-v2.webp" },
+  { name: "Kanchipuram Icons", note: "Temple borders, pure zari", img: "/moods/mood-1-v2.webp" },
+  { name: "Banarasi Heirlooms", note: "Brocade passed down generations", img: "/moods/mood-2-v2.webp" },
+  { name: "Festive Radiance", note: "Warm silks for celebration days", img: "/moods/mood-3-v2.webp" },
+  { name: "Zari Signatures", note: "Gold thread, hand-finished", img: "/moods/mood-4-v2.webp" },
+  { name: "Bridal Élan", note: "Drapes made for the big day", img: "/moods/mood-5-v2.webp" },
 ];
 export const HOT_ORDER = ["saree", "blouse", "necklace", "jhumkas", "bangles"];
 const L = (id, n, name, tint, saree, blouse, hot) => ({ id, name, img: `/looks/n${n}.webp`, tint, saree, blouse, hot });
@@ -235,7 +235,7 @@ export const MUSES = [
     title: "Gulabi Kanchi",
     note: "Rose-pink silk with a soft gold border, the colour of first light.",
     price: 29800,
-    img: "photo-1727430228383-aa1fb59db8bf",
+    img: "photo-1616669181995-9b867456f33b",
     pos: "50% 30%",
   },
   {
@@ -262,7 +262,7 @@ export const MUSES = [
     title: "Manjal Mangalam",
     note: "Turmeric yellow silk for the morning of the haldi.",
     price: 21900,
-    img: "photo-1726068464437-877fd9e923be",
+    img: "photo-1609748341642-ae4c6562bf3d",
     pos: "50% 25%",
   },
   {
@@ -271,7 +271,7 @@ export const MUSES = [
     title: "Sunehri Kanchi",
     note: "Honey-gold silk with a quiet border, nothing else needed.",
     price: 26500,
-    img: "photo-1609748341642-ae4c6562bf3d",
+    img: "photo-1727430228383-aa1fb59db8bf",
     pos: "50% 25%",
   },
   {
@@ -280,7 +280,7 @@ export const MUSES = [
     title: "Rajwada Bridal",
     note: "Red and gold brocade, rich in bridal grace.",
     price: 48600,
-    img: "photo-1697684459863-308b1c497ff2",
+    img: "photo-1654764746590-841871176bc0",
     pos: "50% 25%",
   },
   {
@@ -299,7 +299,7 @@ export const MUSES = [
     note: "Aubergine silk with an all-over gold weave and a soft sheen.",
     price: 24900,
     img: "photo-1641699862936-be9f49b1c38d",
-    pos: "50% 55%",
+    pos: "50% 25%",
   },
   {
     id: "m10",
@@ -307,7 +307,7 @@ export const MUSES = [
     title: "Sindoor Zari",
     note: "Deep sindoor red with a finely woven zari pallu.",
     price: 39500,
-    img: "photo-1745482036050-3d644032416d",
+    img: "photo-1618901185975-d59f7091bcfe",
     pos: "50% 25%",
   },
 ];
@@ -332,7 +332,7 @@ export const REELS = [
     place: "Courtyard, Madurai",
     note: "Sunflower yellow with a pale gold border for the haldi morning.",
     price: 22800,
-    img: "photo-1727934404036-58e5b557288e",
+    img: "photo-1671741730777-3cb7459a34b3",
     pos: "50% 30%",
   },
   {
@@ -343,7 +343,7 @@ export const REELS = [
     place: "The bride's chamber",
     note: "Gold-trimmed bridal red, worn with the full set.",
     price: 54800,
-    img: "photo-1605685316970-ff7f93fc191a",
+    img: "photo-1617633150878-7df1d12a9a57",
     pos: "50% 25%",
   },
   {
@@ -352,7 +352,7 @@ export const REELS = [
     fabric: "Pattu Silk",
     title: "Bazaar Pattu",
     place: "Old market lanes",
-    note: "Olive-green silk with a red zari border, made for market days.",
+    note: "Deep green silk with a gold zari border, made for market days.",
     price: 27400,
     img: "photo-1745482036066-5d215ed6b910",
     pos: "50% 30%",
@@ -377,7 +377,7 @@ export const BRIDAL = [
     fabric: "Pattu",
     note: "Gold-zari pallu",
     price: 48600,
-    img: "photo-1697347811496-c57e2ddc0b94",
+    img: "photo-1677691257363-eebd2abeafec",
     tag: "",
   },
   {
@@ -386,7 +386,7 @@ export const BRIDAL = [
     fabric: "Kanjivaram",
     note: "Peacock motif pallu",
     price: 36400,
-    img: "photo-1771654805161-442c6aab7b55",
+    img: "photo-1771958062901-f9a92b4c8fd4",
     tag: "-8%",
   },
   {
@@ -395,7 +395,7 @@ export const BRIDAL = [
     fabric: "Kanjivaram",
     note: "Silver-zari border",
     price: 41200,
-    img: "photo-1769500804057-ca1391bf4617",
+    img: "photo-1659293554631-d7a38642c5e3",
     tag: "",
   },
   {
@@ -404,7 +404,7 @@ export const BRIDAL = [
     fabric: "Pattu",
     note: "Red-gold pallu",
     price: 27300,
-    img: "photo-1677002419193-9a74069587af",
+    img: "photo-1610173827043-9db50e0d8ef9",
     tag: "",
   },
   {
@@ -413,7 +413,7 @@ export const BRIDAL = [
     fabric: "Banarasi",
     note: "Kadhua woven pallu",
     price: 39800,
-    img: "photo-1732508529169-8f825220e13a",
+    img: "photo-1704342677748-f2edfa9221e3",
     tag: "-10%",
   },
   {
@@ -422,7 +422,7 @@ export const BRIDAL = [
     fabric: "Kanjivaram",
     note: "Temple-border pallu",
     price: 33900,
-    img: "photo-1725477980524-e008de2d3b02",
+    img: "photo-1597897569252-9df44c7de0db",
     tag: "",
   },
   {
@@ -431,7 +431,7 @@ export const BRIDAL = [
     fabric: "Brocade",
     note: "Heavy zari pallu",
     price: 52400,
-    img: "photo-1656238364721-cbf52d389583",
+    img: "photo-1610047614256-023d7c028d0b",
     tag: "-12%",
   },
   {
@@ -440,7 +440,7 @@ export const BRIDAL = [
     fabric: "Kanjivaram",
     note: "Rich silver pallu",
     price: 35200,
-    img: "photo-1654764746032-0b2a5ae1289c",
+    img: "photo-1679006831648-7c9ea12e5807",
     tag: "",
   },
 ];

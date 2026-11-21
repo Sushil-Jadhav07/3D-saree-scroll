@@ -150,7 +150,7 @@ export default function TryTheLook() {
       style={{ overflowAnchor: "none" }}
       className="bg-white lg:grid lg:min-h-[100svh] lg:grid-cols-[1fr_minmax(380px,440px)]"
     >
-      <div className="relative overflow-hidden px-6 pb-10 pt-20 sm:px-10">
+      <div className="relative overflow-hidden px-6 pb-6 pt-12 sm:px-10 md:pb-10 md:pt-20">
         {/* heading: folds away when a look is open */}
         <motion.div
           initial={false}
@@ -399,7 +399,7 @@ export default function TryTheLook() {
       {/* In this look */}
       {/* closed: the list sits level with the models (below the heading); open: the heading folds away and the list moves up with it */}
       <aside
-        className={`border-t border-neutral-200 bg-white px-6 pb-28 pt-8 transition-[padding] duration-500 ease-out sm:px-8 lg:border-l lg:border-t-0 lg:pb-24 ${open ? "lg:pt-24" : "lg:pt-[17.5rem]"}`}
+        className={`border-t border-neutral-200 bg-white px-6 pb-10 pt-6 transition-[padding] md:pb-28 md:pt-8 duration-500 ease-out sm:px-8 lg:border-l lg:border-t-0 lg:pb-24 ${open ? "lg:pt-24" : "lg:pt-[17.5rem]"}`}
         aria-label="In this look"
       >
         <h3 className="text-[15px] font-medium text-neutral-600">In this look</h3>

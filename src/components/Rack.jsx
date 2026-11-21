@@ -100,7 +100,7 @@ export default function Rack() {
           Every silk, <span className="gradient-text">on the rail.</span>
         </h2>
 
-        <div role="tablist" aria-label="Filter the rack" className="mt-9 flex flex-wrap justify-center gap-3">
+        <div role="tablist" aria-label="Filter the rack" className="mt-6 flex flex-wrap justify-center gap-2 sm:mt-9 sm:gap-3">
           {RAIL_TABS.map((c) => {
             const on = tab === c.id;
             return (
@@ -109,7 +109,7 @@ export default function Rack() {
                 role="tab"
                 aria-selected={on}
                 onClick={() => setTab(c.id)}
-                className={`flex items-center gap-2.5 rounded-full border py-2 pl-5 pr-2 text-[15px] font-medium transition-all duration-300 ${
+                className={`flex items-center gap-2 rounded-full border py-1.5 pl-3.5 pr-1.5 text-[13px] font-medium transition-all duration-300 sm:gap-2.5 sm:py-2 sm:pl-5 sm:pr-2 sm:text-[15px] ${
                   on
                     ? "border-maroon-deep bg-maroon text-white shadow-[0_0_0_3px_rgba(138,28,46,0.15),0_10px_24px_-10px_rgba(138,28,46,0.8)]"
                     : "border-neutral-200 bg-white text-ink shadow-sm hover:-translate-y-0.5 hover:shadow-md"
@@ -117,7 +117,7 @@ export default function Rack() {
               >
                 {c.label}
                 <span
-                  className={`grid h-7 min-w-7 place-items-center rounded-full px-1.5 text-[13px] font-semibold ${on ? "bg-white text-maroon" : "bg-[#fbeee6] text-maroon"}`}
+                  className={`grid h-6 min-w-6 place-items-center rounded-full px-1.5 text-[11px] font-semibold sm:h-7 sm:min-w-7 sm:text-[13px] ${on ? "bg-white text-maroon" : "bg-[#fbeee6] text-maroon"}`}
                 >
                   {railFor(c.id).length}
                 </span>

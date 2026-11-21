@@ -34,12 +34,15 @@ export default function Weave() {
   return (
     <section id="the-weave" className="relative bg-white">
       {/* stage */}
-      <div className="relative mx-auto h-[620px] max-w-[1800px] overflow-hidden px-6 sm:px-10 max-md:h-auto max-md:pb-12">
-        <Suspense fallback={null}>
-          <BraidCanvas picks={silks} />
-        </Suspense>
+      <div className="relative mx-auto h-[620px] max-w-[1800px] overflow-hidden px-6 sm:px-10 max-md:flex max-md:h-auto max-md:flex-col max-md:pb-8">
+        {/* desktop: the ribbons are a backdrop behind the text. Phones: their own band between heading and controls */}
+        <div className="absolute inset-0 max-md:relative max-md:inset-auto max-md:order-2 max-md:-mx-6 max-md:mt-2 max-md:h-[280px] sm:max-md:-mx-10">
+          <Suspense fallback={null}>
+            <BraidCanvas picks={silks} />
+          </Suspense>
+        </div>
 
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 px-6 pt-20 sm:px-10 max-md:relative max-md:px-0">
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 px-6 pt-20 sm:px-10 max-md:relative max-md:order-1 max-md:px-0 max-md:pt-14">
           <div className="text-center">
             <span className="eyebrow justify-center">Seer Varisai · Any three silks, 10% off</span>
             <h2 className="section-title mt-4">
@@ -49,7 +52,7 @@ export default function Weave() {
         </div>
 
         {/* controls */}
-        <div className="absolute inset-x-6 bottom-10 z-20 grid max-md:relative max-md:inset-x-0 max-md:bottom-auto max-md:mt-10 items-end gap-6 sm:inset-x-10 md:grid-cols-[minmax(230px,1fr)_minmax(0,2fr)_minmax(200px,1fr)]">
+        <div className="absolute inset-x-6 bottom-10 z-20 grid max-md:relative max-md:inset-x-0 max-md:bottom-auto max-md:order-3 max-md:mt-3 items-end gap-6 sm:inset-x-10 md:grid-cols-[minmax(230px,1fr)_minmax(0,2fr)_minmax(200px,1fr)]">
           <ol className="space-y-1.5 text-[13px]" aria-label="Your three silks">
             {slots.map((id, i) => {
               const s = WEAVE_SILKS.find((x) => x.id === id);
@@ -92,7 +95,7 @@ export default function Weave() {
                 "Choose a silk to weave it in"
               )}
             </p>
-            <div className="mt-3 flex flex-wrap items-center justify-center gap-3" role="group" aria-label="Silks to weave">
+            <div className="mx-auto mt-3 flex flex-wrap items-center justify-center gap-3 max-md:max-w-[17rem]" role="group" aria-label="Silks to weave">
               {WEAVE_SILKS.map((s) => {
                 const on = slots.includes(s.id);
                 const dim = full && !on;
@@ -119,7 +122,8 @@ export default function Weave() {
             </div>
           </div>
 
-          <div className="text-right">
+          {/* phones: price on the left, "Add to bag" on the right, in one tidy row */}
+          <div className="text-right max-md:grid max-md:grid-cols-[1fr_auto] max-md:items-center max-md:gap-x-4 max-md:border-t max-md:border-neutral-200/80 max-md:pt-4 max-md:text-left">
             <p className="h-4 text-[12px] text-neutral-400 line-through">{count ? inr(original) : ""}</p>
             <p className="text-[clamp(1.6rem,2.4vw,2.2rem)] font-semibold tabular-nums">{inr(total)}</p>
             <p className="h-4 text-[11px] text-neutral-400">{count ? `You save ${inr(original - total)}` : "Pick a silk to begin"}</p>
@@ -129,7 +133,7 @@ export default function Weave() {
                 addMany(picked, `${count} ${count === 1 ? "silk" : "silks"} woven into your bag · saved ${inr(original - total)}`);
                 setSlots([null, null, null]);
               }}
-              className="mt-3 rounded-full bg-[#f2b324] px-7 py-3 text-[13px] font-bold text-maroon-deep shadow-[0_10px_24px_-10px_rgba(200,140,10,0.9)] transition enabled:hover:-translate-y-0.5 enabled:active:scale-95 disabled:bg-neutral-200 disabled:text-neutral-400 disabled:shadow-none"
+              className="mt-3 rounded-full max-md:col-start-2 max-md:row-span-3 max-md:row-start-1 max-md:mt-0 bg-[#f2b324] px-7 py-3 text-[13px] font-bold text-maroon-deep shadow-[0_10px_24px_-10px_rgba(200,140,10,0.9)] transition enabled:hover:-translate-y-0.5 enabled:active:scale-95 disabled:bg-neutral-200 disabled:text-neutral-400 disabled:shadow-none"
             >
               Add to bag
             </button>

@@ -44,7 +44,7 @@ export default function MuseFilm() {
             Feel the <span className="gradient-text">drape</span>
           </h2>
 
-          <div className="relative mx-auto mt-10 max-w-[900px]">
+          <div className="relative mx-auto mt-6 max-w-[900px] md:mt-10">
             {/* corner brackets */}
             {[
               "left-[-14px] top-[-14px] border-l border-t",

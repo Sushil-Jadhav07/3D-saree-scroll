@@ -75,6 +75,8 @@ export default function BraidCanvas({ picks }) {
       const h = el.clientHeight || 1;
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
+      // narrow/tall boxes (phones, small tablets): pull the camera back so the whole braid fits
+      camera.position.z = 9 * Math.max(1, 1.7 / camera.aspect);
       camera.updateProjectionMatrix();
       const visH = 2 * Math.tan((camera.fov * Math.PI) / 360) * camera.position.z;
       W = visH * camera.aspect * 1.12;

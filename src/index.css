@@ -221,5 +221,11 @@ html[data-intro="playing"] [data-intro-hide] {
 }
 @media (max-width: 767px) {
   /* the curved line under the Muses cards: drawn wider than the screen so the text stays readable, tucked under the cards */
-  .muses-curve { width: 960px; left: 50%; margin-left: -480px; margin-top: -4px !important; margin-bottom: -8px !important; }
+  .muses-curve { width: 960px; left: 50%; margin-left: -480px; margin-top: -4px !important; margin-bottom: -34px !important; }
+  /* one consistent, tighter rhythm between sections on phones (these sections carry inline padding, hence !important) */
+  #six-moods, #pick-a-silk, #the-rack, #the-muses, #the-muse, #the-reels, #bridal {
+    padding-top: 28px !important;
+    padding-bottom: 32px !important;
+  }
+  .muses-actions { margin-top: 28px !important; }
 }

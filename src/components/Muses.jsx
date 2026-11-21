@@ -54,10 +54,10 @@ export default function Muses() {
         />
       </div>
 
-      <div className="relative mt-7 flex items-center justify-center gap-6">
+      <div className="muses-actions relative mt-7 flex items-center justify-center gap-4 md:gap-6">
         <a
           href="#the-rack"
-          className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[17px] font-semibold text-white transition hover:brightness-125"
+          className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-[15px] font-semibold text-white transition hover:brightness-125 md:px-7 md:py-3.5 md:text-[17px]"
           style={{ background: "#5b0f23", boxShadow: "0 10px 24px -10px rgba(91,15,35,0.8)" }}
         >
           View cart · {bag.length}
@@ -65,7 +65,7 @@ export default function Muses() {
         </a>
         <a
           href="#the-rack"
-          className="inline-flex items-center gap-1.5 text-[17px] font-medium underline underline-offset-4 transition hover:opacity-70"
+          className="inline-flex items-center gap-1.5 text-[15px] font-medium underline md:text-[17px] underline-offset-4 transition hover:opacity-70"
         >
           Shop the Rack <ArrowRight size={18} />
         </a>
